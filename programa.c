@@ -122,13 +122,13 @@ int ruta_nave(int *naveX, int *naveY, char *orientacion, char ordenes[], int *nu
 void resultado_final(int ruta_nave){
     FILE*archivo_salida = fopen("situacion_final.txt", "w");
     if (ruta_nave == 1){
-        fprintf(archivo_salida,"Nave perdida.");
+        fprintf(archivo_salida,"Nave perdida");
     }
     if (ruta_nave == 2){
-        fprintf(archivo_salida,"Nave destruida.");
+        fprintf(archivo_salida,"Nave destruida");
     }
     if (ruta_nave == 3){
-        fprintf(archivo_salida,"Llegamos a salvo.");
+        fprintf(archivo_salida,"Llegamos a salvo");
     }
     fclose(archivo_salida);
 }
@@ -137,7 +137,7 @@ int main() {
 int mapa[MAX][MAX];
 int filas, i=0;
 int columnas;
-int estrellasX, estrellasY, destructor;
+int destructor;
 char orientacion;
 int planetaX, planetaY;
 char ordenes[MAX_MOV];
