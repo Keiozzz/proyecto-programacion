@@ -122,7 +122,7 @@ int ruta_nave(int *naveX, int *naveY, char *orientacion, char ordenes[], int *nu
 void resultado_final(int ruta_nave){
     FILE*archivo_salida = fopen("situacion_final.txt", "w");
     if(archivo_salida == NULL){
-        printf("archivo no identificado.");      
+        return 0;      
     }
     if (ruta_nave == 1){
         fprintf(archivo_salida,"Nave perdida.");
