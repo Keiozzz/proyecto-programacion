@@ -102,6 +102,9 @@ int ruta_nave(int *naveX, int *naveY, char *orientacion, char ordenes[], int *nu
                 *orientacion = 'N';
             }
         }
+        if (*naveX < 0 || *naveX >= *filas || *naveY < 0 || *naveY >= *columnas){
+            return 1;
+        }
         if (mapa[*naveX][*naveY] == DESTRUCTOR){
             return 2;
         }
@@ -111,9 +114,6 @@ int ruta_nave(int *naveX, int *naveY, char *orientacion, char ordenes[], int *nu
         if (mapa[*naveX][*naveY] == PLANETA){
             return 3;
         }
-        if (*naveX < 0 || *naveX >= *filas || *naveY < 0 || *naveY >= *columnas) {
-            return 1;
-        }
         (*i)++;
     }
     return 1;
@@ -121,9 +121,6 @@ int ruta_nave(int *naveX, int *naveY, char *orientacion, char ordenes[], int *nu
 
 void resultado_final(int ruta_nave){
     FILE*archivo_salida = fopen("situacion_final.txt", "w");
-    if(archivo_salida == NULL){
-        return 0;      
-    }
     if (ruta_nave == 1){
         fprintf(archivo_salida,"Nave perdida.");
     }
@@ -141,7 +138,7 @@ int mapa[MAX][MAX];
 int filas, i=0;
 int columnas;
 int estrellasX, estrellasY, destructor;
-char orientacion, ordens[MAX_MOV];
+char orientacion;
 int planetaX, planetaY;
 char ordenes[MAX_MOV];
 int naveX, naveY;
